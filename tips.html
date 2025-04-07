@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips for Mental Health</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0a192f, #1e3a5f, #30c3f4, #64a8ff);
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            background: transparent;
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 90px;
+            margin-left: 20px;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hamburger {
+            cursor: pointer;
+            font-size: 30px;
+            margin-left: 15px;
+            display: block;
+            color: white;
+            z-index: 1000;
+            background: none;
+            border: none;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            flex-direction: column;
+            min-width: 150px;
+            z-index: 2000;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .content {
+            margin-top: 120px;
+            text-align: left;
+            font-size: 22px;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .tips {
+            text-align: left;
+            font-size: 20px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="img.png" alt="Logo" class="logo">
+        <div class="right-section">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+            </div>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Sign In</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>TIPS FOR MENTAL HEALTH</h1>
+        <div class="tips">
+            💡 Stay active and exercise regularly.
+            <br>💡 Maintain a balanced and nutritious diet.
+            <br>💡 Get enough sleep and rest.
+            <br>💡 Practice mindfulness and meditation.
+            <br>💡 Stay connected with friends and family.
+            <br>💡 Take breaks and manage stress effectively.
+            <br>💡 Limit screen time and social media use.
+            <br>💡 Seek professional help if needed.
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            var menu = document.getElementById("dropdownMenu");
+            var button = document.querySelector(".hamburger");
+
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

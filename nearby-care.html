@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Hospitals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0a192f, #1e3a5f, #30c3f4, #64a8ff);
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            background: transparent;
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 90px;
+            margin-left: 20px;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
+            padding: 10px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            flex: 1;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #22b6e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            height: calc(100vh - 150px);
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .hospital-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+
+        .hospital-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hospital-name {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .hospital-rating {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .hospital-details {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .hospital-distance {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="img.png" alt="Logo" class="logo">
+        <div class="right-section">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search hospitals...">
+        <button>Search</button>
+    </div>
+
+    <div class="container">
+        <div class="hospital-card">
+            <div class="hospital-header">
+                <span class="hospital-name">City Hospital</span>
+                <span class="hospital-rating">★★★★☆ 4.2</span>
+            </div>
+            <p class="hospital-details">Specialties: Emergency care, Orthopedics, Cardiology</p>
+            <p class="hospital-distance">Distance: 1.2 km</p>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-header">
+                <span class="hospital-name">Green Valley Medical Center</span>
+                <span class="hospital-rating">★★★★★ 4.8</span>
+            </div>
+            <p class="hospital-details">Specialties: Pediatrics, Neurology, Gynecology</p>
+            <p class="hospital-distance">Distance: 2.5 km</p>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-header">
+                <span class="hospital-name">Sunrise Hospital</span>
+                <span class="hospital-rating">★★★★☆ 4.3</span>
+            </div>
+            <p class="hospital-details">Specialties: Cardiology, General Surgery, Dermatology</p>
+            <p class="hospital-distance">Distance: 3.1 km</p>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-header">
+                <span class="hospital-name">Blue Cross Medical</span>
+                <span class="hospital-rating">★★★★☆ 4.0</span>
+            </div>
+            <p class="hospital-details">Specialties: Orthopedics, Radiology, Physiotherapy</p>
+            <p class="hospital-distance">Distance: 4.0 km</p>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-header">
+                <span class="hospital-name">Wellness Hospital</span>
+                <span class="hospital-rating">★★★★★ 4.7</span>
+            </div>
+            <p class="hospital-details">Specialties: Psychiatry, Endocrinology, Gastroenterology</p>
+            <p class="hospital-distance">Distance: 5.3 km</p>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-header">
+                <span class="hospital-name">Care Plus Clinic</span>
+                <span class="hospital-rating">★★★☆☆ 3.9</span>
+            </div>
+            <p class="hospital-details">Specialties: Pediatrics, ENT, Gynecology</p>
+            <p class="hospital-distance">Distance: 6.8 km</p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0a192f, #1e3a5f, #30c3f4, #64a8ff);
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            background: transparent;
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 90px;
+            margin-left: 20px;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            position: relative; /* Added for dropdown positioning */
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hamburger {
+            cursor: pointer;
+            font-size: 30px;
+            margin-left: 15px;
+            display: block;
+            color: white;
+            z-index: 1000;
+            background: none;
+            border: none;
+        }
+
+        .dropdown-menu {
+            display: none; /* Initially hidden */
+            position: absolute;
+            right: 0; /* Anchoring to right-section */
+            top: 60px; /* Position below navbar */
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            flex-direction: column;
+            min-width: 150px;
+            z-index: 2000; /* Ensure it's above other elements */
+        }
+
+        .dropdown-menu.show {
+            display: block; /* Class to show the menu */
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 22px;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .services-list {
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="img.png" alt="Logo" class="logo">
+        <div class="right-section">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+            </div>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html">Contact Us</a>
+                <a href="login.html">Sign In</a>
+                <a href="home.html">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>About Us</h1>
+        <p>Pulse24 ensures quick access to emergency healthcare by connecting users to nearby hospitals, specialists, and ambulance services.  
+        Our app also provides live consultations and an Emergency SOS feature to save lives in critical situations.</p>
+        
+        <div class="services-list">
+            <ul>
+                <li><strong>Nearby Care Finder:</strong> Locate hospitals and specialists instantly.</li>
+                <li><strong>Live Consultation:</strong> Connect with top doctors anytime.</li>
+                <li><strong>Emergency Assistance:</strong> SOS feature sends location for quick help.</li>
+                <li><strong>Health Tips:</strong> Get expert medical advice for better well-being.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            menu.classList.toggle("show");
+        }
+
+        // Close the dropdown when clicking outside
+        window.addEventListener("click", function(event) {
+            var menu = document.getElementById("dropdownMenu");
+            var hamburger = document.querySelector(".hamburger");
+            
+            if (!event.target.matches('.hamburger') && !menu.contains(event.target)) {
+                menu.classList.remove("show");
+            }
+        });
+    </script>
+
+</body>
+</html>
